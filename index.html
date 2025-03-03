@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scattered Tarot Cards</title>
+    <style>
+        body {
+            background-color: #2a2a2a;
+            overflow: hidden;
+            position: relative;
+        }
+        .card {
+            width: 100px;
+            height: 150px;
+            position: absolute;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_00_Fool.jpg');
+            background-size: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const numCards = 10; // Number of tarot cards
+            for (let i = 0; i < numCards; i++) {
+                let card = document.createElement("div");
+                card.classList.add("card");
+                
+                card.style.left = Math.random() * window.innerWidth + "px";
+                card.style.top = Math.random() * window.innerHeight + "px";
+                
+                card.addEventListener("click", function() {
+                    alert("You clicked a tarot card!");
+                });
+                
+                document.body.appendChild(card);
+            }
+        });
+    </script>
+</body>
+</html>
